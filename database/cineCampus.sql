@@ -24,7 +24,7 @@ CREATE TABLE formato (
 
 CREATE TABLE pelicula (
     id int AUTO_increment PRIMARY Key,
-    contenido VARCHAR(5),
+    codinterno VARCHAR(5),
     nombre VARCHAR (50),
     duracion VARCHAR(50),
     sinopsis TEXT
@@ -40,7 +40,7 @@ CREATE TABLE pelicula_formato (
 
 
 CREATE TABLE actor(
-    id INT PRIMARY KEY,
+    id INT PRIMARY KEY AUTO_increment,
     nombre VARCHAR(50),
     idnacionalidad INT,
     edad INT,
@@ -50,7 +50,7 @@ CREATE TABLE actor(
 );
 
 
-CREATE TABLE peliculacategoria(
+CREATE TABLE peliculaprotagonista(
     idpelicula INT,
     idprotagonista INT,
     idtipoactor INT,
@@ -60,12 +60,37 @@ CREATE TABLE peliculacategoria(
 );
 
 
+INSERT INTO formato(descripcion) VALUES("3D");
+INSERT INTO formato(descripcion) VALUES("2D");
+
+INSERT INTO pelicula(contenido,nombre,duracion,sinopsis) VALUES("CONT1 ","Vengadores","1HR","sinopsis Pelicula Vengadores");
+INSERT INTO pelicula(contenido,nombre,duracion,sinopsis) VALUES("CONT2 ","Vengadores2","3HR","sinopsis Pelicula Vengadores2");
+
+INSERT INTO pelicula_formato(idpelicula,idformato,cantidad)VALUES (1,1,3);
+INSERT INTO pelicula_formato(idpelicula,idformato,cantidad)VALUES (2,2,6);
 
 
+INSERT INTO pais(descripcion) VALUES ("Colombia");
+INSERT INTO pais(descripcion) VALUES ("Panama");
+INSERT INTO pais(descripcion) VALUES ("Chile");
 
 
+INSERT INTO genero(descripcion) VALUES ("Terror");
+INSERT INTO genero(descripcion) VALUES ("Accion");
+INSERT INTO genero(descripcion) VALUES ("Comedia");
 
 
+INSERT INTO actor(nombre,idnacionalidad,edad,idgenero) VALUES("PEPE",1,25,1);
+INSERT INTO actor(nombre,idnacionalidad,edad,idgenero) VALUES("PEPEs",3,30,2);
+INSERT INTO actor(nombre,idnacionalidad,edad,idgenero) VALUES("PEPEd",2,50,3);
 
 
+INSERT INTO tipoactor(descripcion) VALUES ("extras");
+INSERT INTO tipoactor(descripcion) VALUES ("doble");
+INSERT INTO tipoactor(descripcion) VALUES ("principal");
+
+
+INSERT INTO peliculaprotagonista (idpelicula,idprotagonista,idtipoactor) VALUES (1,1,1);
+INSERT INTO peliculaprotagonista (idpelicula,idprotagonista,idtipoactor) VALUES (1,2,3);
+INSERT INTO peliculaprotagonista (idpelicula,idprotagonista,idtipoactor) VALUES (1,3,2);
 

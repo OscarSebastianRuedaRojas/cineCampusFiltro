@@ -24,9 +24,11 @@ public class PeliculaService implements IPeliculaService{
         try {
             Pelicula newpelicula = peliculaMySQL.save(pelicula);
             if (newpelicula!= null) {
+                System.out.println("La pelicula fue agregado con exito");
                 return newpelicula;
             }
         } catch (Exception e) {
+            e.printStackTrace();
         }
         return null;
     }
@@ -35,6 +37,7 @@ public class PeliculaService implements IPeliculaService{
     public void delete(Long id) {
         try {
             peliculaMySQL.delete(id);
+            System.out.println("La pelicula fue eliminada con exito");
         } catch (Exception e) {
             System.out.println("Ocurrio un problema al eliminar el pelicula");
         }
@@ -44,8 +47,10 @@ public class PeliculaService implements IPeliculaService{
     public Pelicula update(Long id, Pelicula pelicula) {
         try {
             Pelicula newpelicula = peliculaMySQL.update(id, pelicula);
+            System.out.println("La pelicula fue actualizada con exito");
             return  newpelicula;
         } catch (Exception e) {
+            e.printStackTrace();
         }
         return null;
     }
@@ -56,6 +61,7 @@ public class PeliculaService implements IPeliculaService{
             ArrayList<Pelicula> peliculaes = peliculaMySQL.list();
             return peliculaes;
         } catch (Exception e) {
+            e.printStackTrace();
         }
         return null;
     }
@@ -66,6 +72,7 @@ public class PeliculaService implements IPeliculaService{
             Pelicula newPelicula = peliculaMySQL.FindById(id);
             return newPelicula;
         } catch (Exception e) {
+            e.printStackTrace();
         }
         return null;
     }

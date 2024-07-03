@@ -21,22 +21,22 @@ public class GeneroMySQL implements GeneroRepositoryPort{
 
 
     public GeneroMySQL() {
-        this.url = "jdbc:mysql://viaduct.proxy.rlwy.net:47771/airport";
+        this.url = "jdbc:mysql://localhost:3306/cinecampus";
         this.username = "root";
-        this.password = "uCbNeUCEUrEqhmfXPrWKkWtWDlaPAnrI";
+        this.password = "123456";
     }
 
 
     @Override
     public Genero save(Genero genero) {
         try (Connection connection = DriverManager.getConnection(url, username, password)) {
-            String query = "INSERT INTO genero VALUES(?, ?)";
+            String query = "INSERT INTO genero VALUES(null, ?)";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setLong(1, genero.getId());
-            preparedStatement.setString(2, genero.getDescripcion());
+            preparedStatement.setString(1, genero.getDescripcion());
             preparedStatement.executeUpdate();
             return genero;
         } catch (Exception e) {
+            e.printStackTrace();
         }
         return null;
     }
@@ -50,6 +50,7 @@ public class GeneroMySQL implements GeneroRepositoryPort{
             preparedStatement.setLong(1, id);
             preparedStatement.executeUpdate();
         } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -64,6 +65,7 @@ public class GeneroMySQL implements GeneroRepositoryPort{
             preparedStatement.executeUpdate();
             return genero;
         } catch (Exception e) {
+            e.printStackTrace();
         }
         return null;
     }
@@ -84,6 +86,7 @@ public class GeneroMySQL implements GeneroRepositoryPort{
             }
             return generos;
         } catch (Exception e) {
+            e.printStackTrace();
         }
         return null;
     }
@@ -103,6 +106,7 @@ public class GeneroMySQL implements GeneroRepositoryPort{
                 return  genero;
             }
         } catch (Exception e) {
+            e.printStackTrace();
         }
         return null;
     }

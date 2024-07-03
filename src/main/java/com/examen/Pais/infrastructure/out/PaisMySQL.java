@@ -21,9 +21,9 @@ public class PaisMySQL implements PaisRepositoryPort{
 
 
     public PaisMySQL() {
-        this.url = "jdbc:mysql://viaduct.proxy.rlwy.net:47771/cinecampus";
+        this.url = "jdbc:mysql://localhost:3306/cinecampus";
         this.username = "root";
-        this.password = "uCbNeUCEUrEqhmfXPrWKkWtWDlaPAnrI";
+        this.password = "123456";
     }
 
 
@@ -36,6 +36,7 @@ public class PaisMySQL implements PaisRepositoryPort{
             preparedStatement.executeUpdate();
             return pais;
         } catch (Exception e) {
+            e.printStackTrace();
         }
         return null;
     }
@@ -49,6 +50,7 @@ public class PaisMySQL implements PaisRepositoryPort{
             preparedStatement.setLong(1, id);
             preparedStatement.executeUpdate();
         } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -63,6 +65,7 @@ public class PaisMySQL implements PaisRepositoryPort{
             preparedStatement.executeUpdate();
             return pais;
         } catch (Exception e) {
+            e.printStackTrace();
         }
         return null;
     }
@@ -83,6 +86,7 @@ public class PaisMySQL implements PaisRepositoryPort{
             }
             return paises;
         } catch (Exception e) {
+            e.printStackTrace();
         }
         return null;
     }
@@ -102,6 +106,7 @@ public class PaisMySQL implements PaisRepositoryPort{
                 return  pais;
             }
         } catch (Exception e) {
+            e.printStackTrace();
         }
         return null;
     }

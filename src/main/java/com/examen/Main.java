@@ -1,7 +1,10 @@
 package com.examen;
 
+import com.examen.menuPrincipal.infrastructure.adapter.MenuAdapter;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        MenuAdapter menuAdapter = new MenuAdapter();
+        menuAdapter.mostrarMenuPrincipal();
     }
 }

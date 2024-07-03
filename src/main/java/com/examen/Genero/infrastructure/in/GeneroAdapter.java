@@ -30,6 +30,7 @@ public class GeneroAdapter {
             input.nextLine();
             return  id;
         } catch (Exception e) {
+            e.printStackTrace();
         }
         return  null;
     }
@@ -41,6 +42,7 @@ public class GeneroAdapter {
             genero.setDescripcion(input.nextLine());
             generoService.save(genero);
         } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -50,6 +52,7 @@ public class GeneroAdapter {
             Long id = this.list();
             generoService.delete(id);
         } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -62,9 +65,36 @@ public class GeneroAdapter {
             genero.setDescripcion(input.nextLine());
             generoService.update(id, genero);
         } catch (Exception e) {
+            e.printStackTrace();
         }
     }
     public void menu(){
-        
+        int opmenu;
+        System.out.println("MENU GENEROS");
+        System.out.println("1. Agregar");
+        System.out.println("2. Editar ");
+        System.out.println("3. Buscar ");
+        System.out.println("4. Eliminar ");
+        System.out.println("Salir");
+        System.out.println("Ingrese una opcion");
+
+        opmenu = input.nextInt();
+        input.nextLine();
+        switch (opmenu) {
+            case 1:
+                save();
+                break;
+            case 2:
+                update();
+                break;
+            case 3:
+                list();
+                break;
+            case 4:
+                delete();
+                break;
+            default:
+                break;
+        }
     }
 }

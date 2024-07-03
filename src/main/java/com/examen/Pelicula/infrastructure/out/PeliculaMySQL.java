@@ -21,9 +21,9 @@ public class PeliculaMySQL implements PeliculaRepositoryPort{
 
 
     public PeliculaMySQL() {
-        this.url = "jdbc:mysql://viaduct.proxy.rlwy.net:47771/cinecampus";
+        this.url = "jdbc:mysql://localhost:3306/cinecampus";
         this.username = "root";
-        this.password = "uCbNeUCEUrEqhmfXPrWKkWtWDlaPAnrI";
+        this.password = "123456";
     }
 
 
@@ -39,6 +39,7 @@ public class PeliculaMySQL implements PeliculaRepositoryPort{
             preparedStatement.executeUpdate();
             return pelicula;
         } catch (Exception e) {
+            e.printStackTrace();
         }
         return null;
     }
@@ -52,6 +53,7 @@ public class PeliculaMySQL implements PeliculaRepositoryPort{
             preparedStatement.setLong(1, id);
             preparedStatement.executeUpdate();
         } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -69,6 +71,7 @@ public class PeliculaMySQL implements PeliculaRepositoryPort{
             preparedStatement.executeUpdate();
             return pelicula;
         } catch (Exception e) {
+            e.printStackTrace();
         }
         return null;
     }
@@ -84,7 +87,7 @@ public class PeliculaMySQL implements PeliculaRepositoryPort{
             while (resultSet.next()) {
                 Pelicula pelicula = new Pelicula();
                 pelicula.setId(resultSet.getLong("id"));
-                pelicula.setCodinterno(resultSet.getString("coninterno"));
+                pelicula.setCodinterno(resultSet.getString("codinterno"));
                 pelicula.setNombre(resultSet.getString("nombre"));
                 pelicula.setDuracion(resultSet.getString("duracion"));
                 pelicula.setSinopsis(resultSet.getString("sinopsis"));
@@ -92,6 +95,7 @@ public class PeliculaMySQL implements PeliculaRepositoryPort{
             }
             return peliculaes;
         } catch (Exception e) {
+            e.printStackTrace();
         }
         return null;
     }
@@ -107,13 +111,14 @@ public class PeliculaMySQL implements PeliculaRepositoryPort{
             if (resultSet.next()) {
                 Pelicula pelicula = new Pelicula();
                 pelicula.setId(resultSet.getLong("id"));
-                pelicula.setCodinterno(resultSet.getString("coninterno"));
+                pelicula.setCodinterno(resultSet.getString("codinterno"));
                 pelicula.setNombre(resultSet.getString("nombre"));
                 pelicula.setDuracion(resultSet.getString("duracion"));
                 pelicula.setSinopsis(resultSet.getString("sinopsis"));
                 return  pelicula;
             }
         } catch (Exception e) {
+            e.printStackTrace();
         }
         return null;
     }

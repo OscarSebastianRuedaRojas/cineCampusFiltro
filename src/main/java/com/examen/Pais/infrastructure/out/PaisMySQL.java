@@ -30,7 +30,7 @@ public class PaisMySQL implements PaisRepositoryPort{
     @Override
     public Pais save(Pais pais) {
         try (Connection connection = DriverManager.getConnection(url, username, password)) {
-            String query = "INSERT INTO pais VALUES(?, ?)";
+            String query = "INSERT INTO pais VALUES(null , ?)";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, pais.getDescripcion());
             preparedStatement.executeUpdate();

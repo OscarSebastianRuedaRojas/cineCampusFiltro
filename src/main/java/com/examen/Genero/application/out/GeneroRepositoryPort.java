@@ -9,4 +9,5 @@ public interface GeneroRepositoryPort {
     void delete(Long id);
     Genero update(Long id, Genero genero);
     ArrayList<Genero> list();
+    Genero FindById(Long id);
 }
